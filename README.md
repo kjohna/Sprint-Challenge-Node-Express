@@ -26,29 +26,40 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+1) Express is a framework that provides extensibility to Node.js. 
+2) Its benefits are accessed by including middleware using `connect middleware`.
+
 - [ ] Describe Middleware?
+
+Middleware are functions that sit in between the receipt and response of a request. Middleware can optionally modify or respond to a request depending on their code.
 
 - [ ] Describe a Resource?
 
+Resource is a term used to refer to everything that a RESTful API has access to and is responsible for providing to anyone accessing the API.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+Standardized HTTP codes are available to provide a way for an API to indicate the status of a request.
+
 - [ ] How can we partition our application into sub-applications?
+
+Using express router we can separate functionality of the application. One way is to divide routes by how the resources they are serving are related to each other. For instance, `user` related routes would be separated from `product` related routes
 
 ## Project Setup
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Project Manager_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [*] Create a forked copy of this project.
+- [*] Add your _Project Manager_ as collaborator on Github.
+- [*] Clone your forked version of the Repository.
+- [*] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
+- [*] Implement the project on this Branch, committing changes regularly.
+- [*] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master on your fork. **Please don't merge your own pull request.**
-- [ ] Add your _Project Manager_ as a Reviewer on the Pull-request
+- [*] Submit a Pull-Request to merge <firstName-lastName> Branch into master on your fork. **Please don't merge your own pull request.**
+- [*] Add your _Project Manager_ as a Reviewer on the Pull-request
 - [ ] Your _Project Manager_ will count the challenge as done by merging the branch into _master_.
 
 ## Database Persistence Helpers
@@ -68,13 +79,13 @@ The `projectModel.js` helper includes an extra method called `getProjectActions(
 
 ## Minimum Viable Product
 
-- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+- [*] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [*] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_.
-- [ ] Retrieve the list of actions for a project.
+- [*] Perform CRUD operations on _projects_ and _actions_.
+- [*] Retrieve the list of actions for a project.
 
 ### Database Schemas
 
