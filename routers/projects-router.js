@@ -21,7 +21,6 @@ router.get('/', async(req, res) => {
 router.get('/:id', async(req, res) => {
   try {
     const project = await projectsDb.get(req.params.id);
-    console.log("project: ", project);
     if (project) {
       res.status(200).json(project);
     } else {
@@ -29,6 +28,20 @@ router.get('/:id', async(req, res) => {
     }
   } catch {
     res.status(500).json({ error: "The project could not be retrieved." });
+  }
+});
+
+// GET project's actions by project ID
+router.get('/:id/actions', async(req, res) => {
+  try {
+    const projectActions = await projectsDb.getProjectActions(req.params.id);
+    if (projectActions.length > 0) {
+      res.status(200).json(projectActions);
+    } else {
+      res.status(404).json({ message: "No actions for the project with that id were found." });
+    }
+  } catch {
+    res.status(500).json({ error: "The project's actions could not be retrieved." });
   }
 });
 
