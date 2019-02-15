@@ -6,7 +6,7 @@ const router = express.Router();
 
 // projects-router will respond to requests to '/api/projects' see server.js
 
-// GET all posts
+// GET all projects
 router.get('/', async(req, res) => {
   try {
     const projects = await projectsDb.get();
@@ -17,7 +17,7 @@ router.get('/', async(req, res) => {
   }
 });
 
-// GET post by ID
+// GET project by ID
 router.get('/:id', async(req, res) => {
   try {
     const project = await projectsDb.get(req.params.id);
@@ -29,6 +29,21 @@ router.get('/:id', async(req, res) => {
     }
   } catch {
     res.status(500).json({ error: "The project could not be retrieved." });
+  }
+});
+
+// POST project
+router.post('/', async(req, res) => {
+  try {
+    const projectData = req.body;
+    if (!projectData.name || !projectData.description) {
+      res.status(400).json({ error: "Project name and description are required to make a new project."});
+    } else {
+      newProj = await projectsDb.insert(projectData);
+      res.status(200).json({ success: true, message: newProj });
+    }
+  } catch {
+    res.status(500).json({ error: "Failed to save project." });
   }
 });
 
