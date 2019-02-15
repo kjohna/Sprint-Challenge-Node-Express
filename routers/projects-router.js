@@ -61,4 +61,23 @@ router.delete('/:id', async(req, res) => {
   }
 });
 
+// PUT to project by id
+router.put('/:id', async(req, res) => {
+  try {
+    const changes = req.body;
+    if (!changes.name || !changes.description) {
+      res.status(400).json({ error: "Must provide name and description to update." });
+    } else {
+      const updatedProj = await projectsDb.update(req.params.id, changes);
+      if (!updatedProj) {
+        res.status(404).json({ error: "No project was found with that id" });
+      } else {
+        res.status(200).json({ message: "Successful update.", project: updatedProj });
+      }
+    }
+  } catch {
+    res.status(500).json({ error: "The project could not be updated." });
+  }
+})
+
 module.exports = router;
